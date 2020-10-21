@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
+use App\Tag;
 use App\Http\Requests\Post\CreatePostRequest;
 use App\Http\Requests\Post\UpdatePostRequest;
 use Illuminate\Support\Facades\Storage;
@@ -33,7 +34,7 @@ class PostsController extends Controller
      }
     public function create()
     {
-        return view('posts.create')->with('categories',Category::all());
+        return view('posts.create')->with('categories',Category::all())->with('tags',Tag::all());
     }
 
     /**
@@ -49,7 +50,7 @@ class PostsController extends Controller
     // dd($image);
      
 
-        Post::create(
+        $post=Post::create(
         [
         'title'=>$request->title,
         'description'=>$request->description,
@@ -61,6 +62,10 @@ class PostsController extends Controller
         ]
     );
 
+    if($request->tags){
+        $post->tags()->attach($request->tags);
+        //dd($request->tags);
+     }
       session()->flash('success','Post successfully inserted');
       return redirect(route('posts.index'));
         
@@ -87,7 +92,7 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('posts.create')->with('post',$post)->with('categories',Category::all());
+        return view('posts.create')->with('post',$post)->with('categories',Category::all())->with('tags',Tag::all());
     }
 
     /**

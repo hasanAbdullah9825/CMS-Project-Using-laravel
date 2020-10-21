@@ -17,7 +17,7 @@
         <table class="table">
           <thead >
               <th>Name</th>
-              <th>tags count</th>
+              <th>Post count</th>
               <th></th>
           </thead>
           <tbody>
@@ -26,7 +26,7 @@
                   <td>
                      {{$tag->name}}
                   </td>
-                <td>0</td>
+                <td>{{$tag->post->count()}}</td>
               <td><a href="{{route('tags.edit',$tag->id)}}" class="btn btn-info btn-sm">Edit</a>
                   <button class="btn btn-danger btn-sm mx-2" onclick="handleDelete({{$tag->id}})"> Delete</button>
               </td>
