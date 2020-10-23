@@ -102,33 +102,37 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePostRequest $request, Post $post)
-    {
-        if($request->hasFile('image')){
-            $image=$request->image->store('posts');
-            storage::delete($post->image);
-        }
-        $post->update([
-        'title'=>$request->title,
-        'description'=>$request->description,
-        'content'=>$request->content,
-         'published_at'=>$request->published_at,
-         'image'=>$image,
-      
-        'published_at'=>$request->published_at]);
-
-        session()->flash('success','Post successfully Updated');
-    return redirect(route('posts.index'));
-
-
-    }
+   
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     * 
      */
+    public function update(UpdatePostRequest $request, Post $post)
+    {
+       
+       $data=$request->only(['title','description','content','published_at']);
+       $data['category_id']=$request->category;
+     
+        if($request->hasFile('image')){
+            $image = $request->image->store('posts');
+            
+            storage::delete($post->image);
+            $data['image'] = $image;
+            
+        }
+        $post->update($data);
+        
+       
+        
+        $post->tags()->sync($request->tags);
+        session()->flash('success', 'Post Updated Successfully');
+        return redirect(route('posts.index'));
+
+    }
     public function destroy($id)
     {
        

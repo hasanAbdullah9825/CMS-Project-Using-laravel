@@ -39,7 +39,7 @@
 </div>
 <div class="form-group">
     <label for="content">Content</label>
-{{-- <input id="content" value="Editor content goes here" type="hidden" name="content" value="{{isset($post) ? $post->content:''}}" > --}}
+<input id="content" value="Editor content goes here" type="hidden" name="content" value="{{isset($post) ? $post->content:''}}" >
 <input id="content" type="hidden" name="content" value="{{  isset($post) ? $post->content : ''  }}">
 
   <trix-editor input="content"></trix-editor>
@@ -79,15 +79,10 @@
 <div class="form-group">
     
     <label for="tag">Tag</label>
-    <select name="tags[]" id="" class="form-control" multiple>
+    <select name="tags[]" id="" class="form-control js-example-basic-single " multiple>
 @foreach($tags as $tag)
     <option value="{{$tag->id}} " @isset($post)
-        {{-- @foreach ($post->tags as $postTag)
-          @if($postTag->id==$tag->id)
-              {{'selected'}}
-          @endif
-            
-        @endforeach --}}
+        
 
         @foreach($post->tags as $postTag) 
                                     {{ $postTag->id == $tag->id ? 'selected' : '' }}
@@ -114,17 +109,22 @@
 @endsection
 
 @section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.0/trix.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.0/trix-core.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.0/trix-core.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.0/trix.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>flatpickr('#published_at',{enableTime:true})</script>
+<script> $(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});</script>
     
 @endsection
 
 @section('css')
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.0/trix.css">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.0/trix.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.0/trix.min.css"> 
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
