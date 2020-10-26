@@ -16,13 +16,15 @@
                 <th>Image</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th></th>
                
             </thead>
         <tbody>
             @foreach ($users as $user )
             <tr>
              <td>
-                 {{-- <img src="{{ asset('storage/'.$user->image) }}" width="120px" height="65px" alt="image"> --}}
+               
+             <img style="border-radius: 50%" src="{{Gravatar::src($user->email)}}" alt="">
              
              </td>
              <td>
@@ -33,6 +35,14 @@
              <td>
                  {{$user->email}}
                  
+             </td>
+             <td>
+                @if (!$user->isAdmin())
+                <form action="{{ route('users.make-admin', $user->id) }}" method="post">
+                    @csrf
+                    <button class="btn btn-success btn-md">Make Admin</button>    
+                </form>
+            @endif
              </td>
              
          </tr>
