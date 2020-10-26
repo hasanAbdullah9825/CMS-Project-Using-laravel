@@ -96,6 +96,12 @@ class tagsController extends Controller
      */
     public function destroy(Tag $Tag)
     {
+        if($Tag->posts->count()>0){
+
+            session()->flash('error','Tag can not be delete because post is associated with this category');
+            return redirect()->back();
+        }
+       
         $Tag->delete();
         session()->flash('success','Tag deleted successfully');
          return redirect(route('tags.index'));

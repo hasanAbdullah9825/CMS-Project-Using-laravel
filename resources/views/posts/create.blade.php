@@ -39,7 +39,7 @@
 </div>
 <div class="form-group">
     <label for="content">Content</label>
-<input id="content" value="Editor content goes here" type="hidden" name="content" value="{{isset($post) ? $post->content:''}}" >
+{{-- <input id="content" value="Editor content goes here" type="hidden" name="content" value="{{isset($post) ? $post->content:''}}" > --}}
 <input id="content" type="hidden" name="content" value="{{  isset($post) ? $post->content : ''  }}">
 
   <trix-editor input="content"></trix-editor>
