@@ -51,6 +51,8 @@
 </div>
 @if(isset($post))
 <img src="{{asset('storage/'.$post->image)}}" alt="" style="width:100%">
+
+
 @endif
 
 <div class="form-group">
