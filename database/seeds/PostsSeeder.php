@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Post;
 use App\Category;
 use App\Tag;
+use App\User;
 
 class PostsSeeder extends Seeder
 {
@@ -25,8 +26,31 @@ class PostsSeeder extends Seeder
         $tag2=Tag::create(['name'=>'customer']);
         $tag3=Tag::create(['name'=>'offers']);
 
+        $author2=User::create([
 
-        $post1=Post::create([
+            'name'=>'jhon doe',
+          'email'=>'jhon@gmail.com',
+          'password'=>Hash::make('password'),
+        ]);
+
+        $author3=User::create([
+
+            'name'=>'jhen doe',
+          'email'=>'jhen@gmail.com',
+          'password'=>Hash::make('password'),
+        ]);
+
+        $author4=User::create([
+
+            'name'=>'modoris',
+          'email'=>'modoris@gmail.com',
+          'password'=>Hash::make('password'),
+        ]);
+
+
+
+
+        $post1=$author2->posts()->create([
             'title'=>'We relocated our office to a new designed garage',
             'description'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy',
             'content'=>'he 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem',
@@ -34,7 +58,7 @@ class PostsSeeder extends Seeder
             'category_id'=>$category1->id
         ]);
 
-        $post2=Post::create([
+        $post2=$author3->posts()->create([
             'title'=>'We relocated our office to a new designed garage',
             'description'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy',
             'content'=>'he 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem',
@@ -42,7 +66,7 @@ class PostsSeeder extends Seeder
             'category_id'=>$category2->id
         ]);
 
-        $post3=Post::create([
+        $post3=$author4->posts()->create([
             'title'=>'We relocated our office to a new designed garage',
             'description'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy',
             'content'=>'he 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem',
@@ -50,7 +74,7 @@ class PostsSeeder extends Seeder
             'category_id'=>$category3->id
         ]);
 
-        $post4=Post::create([
+        $post4=$author2->posts()->create([
             'title'=>'We relocated our office to a new designed garage',
             'description'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy',
             'content'=>'he 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem',

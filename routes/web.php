@@ -16,6 +16,7 @@
 // });
 
 Route::get('/','WelcomeController@index')->name('welcome');
+Route::get('blog/posts/{post}','Blog\BlogController@show')->name('blog.show');
 
 Auth::routes();
 
