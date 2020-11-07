@@ -59,7 +59,7 @@ class PostsSeeder extends Seeder
         ]);
 
         $post2=$author3->posts()->create([
-            'title'=>'We relocated our office to a new designed garage',
+            'title'=>'Top 5 brilliant content marketing strategies',
             'description'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy',
             'content'=>'he 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem',
             'image'=>'posts/2.jpg',
@@ -67,7 +67,7 @@ class PostsSeeder extends Seeder
         ]);
 
         $post3=$author4->posts()->create([
-            'title'=>'We relocated our office to a new designed garage',
+            'title'=>'Congratulate and thank to Maryam for joining our team',
             'description'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy',
             'content'=>'he 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem',
             'image'=>'posts/3.jpg',
@@ -75,7 +75,7 @@ class PostsSeeder extends Seeder
         ]);
 
         $post4=$author2->posts()->create([
-            'title'=>'We relocated our office to a new designed garage',
+            'title'=>'Congratulate and thank to Maryam for joining our team',
             'description'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy',
             'content'=>'he 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem',
             'image'=>'posts/3.jpg',
