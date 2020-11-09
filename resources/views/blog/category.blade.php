@@ -64,7 +64,7 @@ TheSaaS — Blog with sidebar
 
 
 
-            @include('partial.sidebar')
+        @include('partial.sidebar')
 
           </div>
         </div>
