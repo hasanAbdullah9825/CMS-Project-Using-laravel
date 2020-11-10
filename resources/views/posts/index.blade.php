@@ -18,6 +18,7 @@
                 <th>Image</th>
                 <th>Title</th>
                 <th></th>
+                <th></th>
             </thead>
         <tbody>
             @foreach ($posts as $post )
@@ -48,6 +49,16 @@
      
                  </form>
              </td>
+           <td>
+            @if($post->trashed())
+           <form action="{{route('posts.restore',$post->id)}}" method="POST">
+            @csrf
+               <button type="submit" class="btn btn-primary btn-sm">Restore</button>
+            </form>
+                
+            @endif
+           </td>
+
          </tr>
                 
             @endforeach

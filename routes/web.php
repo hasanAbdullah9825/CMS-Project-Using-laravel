@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('tags','TagsController');
     Route::resource('posts','PostsController')->middleware('VeryfiCategoriesCount');
     Route::get('trashed-posts','PostsController@trashed')->name('trashed-post.index');
+    Route::post('posts/restorertr/{post}','PostsController@restore')->name('posts.restore');
     
 
 });
