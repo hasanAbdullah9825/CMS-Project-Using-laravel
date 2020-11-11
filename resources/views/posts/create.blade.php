@@ -109,7 +109,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.0/trix-core.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.0/trix.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script>flatpickr('#published_at',{enableTime:true})</script>
+<script>flatpickr('#published_at',{enableTime:true,enableSeconds:true})</script>
 <script> $(document).ready(function() {
     $('.js-example-basic-single').select2();
 });</script>

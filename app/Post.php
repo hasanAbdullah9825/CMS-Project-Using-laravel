@@ -9,7 +9,10 @@ use Illuminate\Http\Request;
 class Post extends Model
 {
     use SoftDeletes;
+
+    protected $dates=['published_at'];
     protected $fillable=['title', 'published_at', 'image', 'description', 'content','category_id','user_id'];
+
     public function category(){
         return $this->belongsTo(Category::class);
     }
@@ -27,11 +30,16 @@ class Post extends Model
     $search=request()->query('search');
 
     if(!$search){
-        return $query;
+        return $query->published();
     }
     
-    return $query->where('title','LIKE',"%{$search}%");
+    return $query->published()->where('title','LIKE',"%{$search}%");
 
      
+    }
+
+    public function scopePublished($query){
+
+     return $query->where('published_at','<=',now());
     }
 }
