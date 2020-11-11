@@ -16,9 +16,9 @@
 // });
 
 Route::get('/','WelcomeController@index')->name('welcome');
-Route::get('blog/posts/{post}','Blog\BlogController@show')->name('blog.show');
-Route::get('blog/categories/{category}','Blog\BlogController@category')->name('blog.category');
-Route::get('blog/tags/{tag}','Blog\BlogController@tag')->name('blog.tag');
+Route::get('blog/posts/{post}','Blog\PostsController@show')->name('blog.show');
+Route::get('blog/categories/{category}','Blog\PostsController@category')->name('blog.category');
+Route::get('blog/tags/{tag}','Blog\PostsController@tag')->name('blog.tag');
 
 Auth::routes();
 

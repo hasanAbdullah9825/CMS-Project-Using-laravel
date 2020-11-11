@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Http\Request;
 
 class Post extends Model
 {
@@ -20,5 +21,17 @@ class Post extends Model
     public function user(){
 
         return $this->belongsTo(User::class);
+    }
+
+    public function scopeSearched($query){
+    $search=request()->query('search');
+
+    if(!$search){
+        return $query;
+    }
+    
+    return $query->where('title','LIKE',"%{$search}%");
+
+     
     }
 }

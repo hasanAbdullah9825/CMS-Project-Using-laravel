@@ -34,7 +34,9 @@ class PostsController extends Controller
      }
     public function create()
     {
-        return view('posts.create')->with('categories',Category::all())->with('tags',Tag::all());
+        return view('posts.create')
+        ->with('categories',Category::all())
+        ->with('tags',Tag::all());
     }
 
     /**
@@ -57,6 +59,7 @@ class PostsController extends Controller
         'content'=>$request->content,
          'published_at'=>$request->published_at,
          'category_id' => $request->category,
+         'user_id'=>auth()->user()->id,
         'image'=>$image,
         'published_at'=>$request->published_at
         ]
@@ -64,7 +67,7 @@ class PostsController extends Controller
 
     if($request->tags){
         $post->tags()->attach($request->tags);
-        //dd($request->tags);
+        
      }
       session()->flash('success','Post successfully inserted');
       return redirect(route('posts.index'));
