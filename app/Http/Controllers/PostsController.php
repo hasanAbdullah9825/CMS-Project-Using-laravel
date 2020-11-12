@@ -18,8 +18,17 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('posts.index')->with('posts',Post::all());
+
+    {      if(auth()->user()->id==1){
+
+        $posts=Post::all();
+    }
+
+    else {
+        $posts=Post::where('user_id', auth()->user()->id);
+    }
+        return view('posts.index')->with('posts',$posts);
+       
     }
 
     /**

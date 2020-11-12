@@ -39,8 +39,8 @@ Route::middleware(['auth','VerifyAdminMiddleware'])->group(function(){
     Route::get('user','UserController@index')->name('users.index');
 
     Route::post('users/{user}/make-admin','UserController@makeAdmin')->name('users.make-admin');
-    Route::get('users/edit','UserController@edit')->name('users.edit');
-    Route::put('users/update-profile','UserController@updateProfile')->name('users.update-profile');
+    Route::get('users/edit','UserController@edit')->name('users.edit');//edit user profile
+    Route::put('users/update-profile','UserController@updateProfile')->name('users.update-profile');//update user profile
 });
 
 
