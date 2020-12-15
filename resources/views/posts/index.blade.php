@@ -13,9 +13,11 @@
 
     <div class="card-body">
         @if ($posts->count()>0)
+
+        
         <table class="table">
             <thead>
-                <th>Image</th>
+                <th>Image111</th>
                 <th>Title</th>
                 <th></th>
                 <th></th>

@@ -22,10 +22,12 @@ class PostsController extends Controller
     {      if(auth()->user()->id==1){
 
         $posts=Post::all();
+        
     }
 
     else {
-        $posts=Post::where('user_id', auth()->user()->id);
+        $posts=Post::where('user_id', auth()->user()->id)->get();
+        dd($posts);
     }
         return view('posts.index')->with('posts',$posts);
        

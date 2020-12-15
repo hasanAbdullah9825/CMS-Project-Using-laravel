@@ -16,6 +16,7 @@
 // });
 
 Route::get('/','WelcomeController@index')->name('welcome');
+Route::post('/form-search','WelcomeController@formSearch')->name('formSearch');
 Route::get('blog/posts/{post}','Blog\PostsController@show')->name('blog.show');
 Route::get('blog/categories/{category}','Blog\PostsController@category')->name('blog.category');
 Route::get('blog/tags/{tag}','Blog\PostsController@tag')->name('blog.tag');
