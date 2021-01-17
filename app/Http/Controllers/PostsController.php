@@ -27,7 +27,7 @@ class PostsController extends Controller
 
     else {
         $posts=Post::where('user_id', auth()->user()->id)->get();
-        dd($posts);
+        //dd($posts);
     }
         return view('posts.index')->with('posts',$posts);
        

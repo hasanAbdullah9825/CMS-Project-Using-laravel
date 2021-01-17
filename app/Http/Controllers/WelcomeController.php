@@ -20,12 +20,12 @@ class WelcomeController extends Controller
 
     }
 
-    public function formSearch(Request $request)
-    {
-        $search = $request->search;
+    // public function formSearch(Request $request)
+    // {
+    //     $search = $request->search;
 
-        $posts =  Post::where('title', 'LIKE', "%{$search}%")->get();
-        // dd($searchResult);
-        return view('welcome')->with('tags', Tag::all())->with('categories', Category::all())->with('posts', $posts);
-    }
+    //     $posts =  Post::where('title', 'LIKE', "%{$search}%")->get();
+    //     // dd($searchResult);
+    //     return view('welcome')->with('tags', Tag::all())->with('categories', Category::all())->with('posts', $posts);
+    // }
 }

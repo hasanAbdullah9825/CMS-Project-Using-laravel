@@ -17,7 +17,7 @@
         
         <table class="table">
             <thead>
-                <th>Image111</th>
+                <th>Image</th>
                 <th>Title</th>
                 <th></th>
                 <th></th>

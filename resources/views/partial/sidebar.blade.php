@@ -6,9 +6,9 @@
       @csrf
      
     <input type="text" class="form-control" name="search" placeholder="Search" value="{{request()->query('search')}}">
-        <div class="input-group-addon">
-          <span class="input-group-text"><i class="ti-search"></i></span>
-        </div>
+    <div class="input-group-addon">
+      <span><button class="p-1" type="submit"><i class="fa fa-search"></i></button></span>
+    </div>
       </form>
 
       <hr>
